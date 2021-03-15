@@ -191,8 +191,8 @@ As seguintes ferramentas foram usadas:
 - [Git](https://git-scm.com/downloads) - Instalado em sua máquina;
 - [PostBird](https://www.electronjs.org/apps/postbird) - Instalado em sua máquina;
 - [PostgreSQL](https://www.postgresql.org/download/) - Instalado em sua máquina. Segue abaixo informações importantes:
-    - [Configuração do Banco de Dados usado nesse projeto](https://github.com/abner-starkasty/launchstore/blob/master/src/config/db.js);
-    - [Arquivo SQL para auxílio na criação do banco, tabelas e constraints](https://github.com/abner-starkasty/launchstore/blob/master/src/config/Launcstore.sql);
+    - [Configuração do Banco de Dados usado nesse projeto](https://github.com/abner-starkasty/My-Class/blob/main/src/config/db.js);
+    - [Arquivo SQL para auxílio na criação do banco, tabelas e constraints](https://github.com/abner-starkasty/My-Class/blob/main/src/config/MyClass.sql);
 
 
 ##### 👉 Após instalar as ferramentas:
@@ -202,14 +202,15 @@ As seguintes ferramentas foram usadas:
 #->No terminal:
 
 # Clonar repositório
-$ git clone https://github.com/abner-starkasty/Launchstore
+$ git clone https://github.com/abner-starkasty/My-Class
 
 # Entrar/abrir diretório do projeto no seu editor
-$ cd Launchstore
+$ cd My Class
 
-# Criar banco de dados utilizando o arquivo Launcstore.sql
+# Criar banco de dados utilizando o arquivo MyClass.sql
+# As queries estão prontas. É só executar no postbird
 
-# Executar seeds.js para criar primeiro usuário
+# Executar seeds.js para popular o banco
 $ node src/config/seeds.js
 
 # Instalar dependências
@@ -221,11 +222,7 @@ $ yarn start
 # Acesso de 2 formas:
   - manualmente pela porta: http://localhost:5000/
   - automaticamente (abre assim que iniciar o server) pelo browsersync: http://localhost:3000/
-
-# Usuário criado através da seed, para poder logar no sistema:
-  - email: pegar email atraves da tabela "users" no banco que foi criado;
-  - senha: 12345
-
+  
 # Qualquer dúvida/críticas/sugestões sinta-se a vontade para entrar em contato em abwillys001@gmail.com
 ```
 
