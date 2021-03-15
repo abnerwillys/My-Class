@@ -1,0 +1,55 @@
+@keyframes hidemessage {
+  to {
+    top: -360px;
+    opacity: 0;
+  }
+}
+
+.container-system-message {
+  background-color: #fff;
+
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 110px;
+  right: 30px;
+
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+
+  z-index: 100;
+
+  opacity: 1;
+
+  animation: hidemessage 0.5s 5s ease-out forwards;
+}
+
+.system {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+
+  width: 344px;
+  height: 80px;
+  padding: 20px;
+  border-radius: 10px;
+
+  color: white;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.system.error {
+  background-color: var(--color-error);
+}
+
+.system.success {
+  background-color: var(--color-success);
+}

@@ -1,0 +1,77 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+  <title>My Class | Teacher detail</title>
+{% endblock %}
+
+{% block content %}
+  <div class="card">
+    <section class="avatar" style="background: url({{ teacher.avatar_url }}) no-repeat center center / cover"></section>
+
+    <section class="details">
+      <h3>Details</h3>
+
+      {% if action_feedback %}
+        <div class="lottie"></div>
+        <input type="hidden" name="pathRedirect" value="{{pathRedirect}}">
+      {% else %}
+
+        <div class="item">
+          <div>Teacher</div>
+          <div>{{ teacher.name }}</div>
+        </div>
+        <div class="item">
+          <div>Age</div>
+          <div>{{ teacher.age }}</div>
+        </div>
+        <div class="item">
+          <div>Graduation</div>
+          <div>{{ teacher.graduation }}</div>
+        </div>
+        <div class="item">
+          <div>Type Class</div>
+          <div>{{ "In Person" if teacher.class_type == "IP" else "E-Learning"}}</div>
+        </div>
+        <div class="item">
+          <div>Expertise</div>
+          <div>
+            {% for item in teacher.expertise %}
+              <span>{{ item }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="item">
+          <div>Since</div>
+          <div>{{ teacher.created_at }}</div>
+        </div>
+
+        <div id="button-box">
+          <a href="/teachers/{{ teacher.id }}/edit" class="button">
+            Edit
+            <span class="material-icons">
+              create
+            </span>
+          </a>
+
+          <form class="form-delete" action="/teachers?_method=DELETE" method="POST">
+            <input type="hidden" name="id" value="{{ teacher.id }}">
+            <input type="hidden" name="avatar_url" value="{{ teacher.avatar_url }}">
+
+            <button type="submit">
+              Delete
+              <span class="material-icons">
+                delete
+              </span>
+            </button>
+          </form>
+        </div>
+
+      {% endif %}
+    </section>
+  </div>
+
+{% endblock content %}
+
+{% block scripts %} 
+  {% include '../lottie.njk' %}
+{% endblock  %}

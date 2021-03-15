@@ -1,0 +1,66 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+  <title>My Class | Dashboard students</title>
+{% endblock %}
+
+{% block content %}
+  <div class="card table-container">
+    <div class="header">
+      <a href="/students/create"><span class="material-icons">add</span></a>
+
+      <form action="/students" method="GET">
+        <div class="input-block">
+          <input 
+            type="text" 
+            name="filter" 
+            value="{{filter}}"
+            placeholder="Name or Email"
+          >
+        </div>
+
+        <button type="submit"><span class="material-icons">search</span></button>
+      </form>
+    </div>
+
+    {% if not messageErrorFilter %}
+    
+    <table width="100%">
+      <thead>
+        <tr>
+          <th>Student's name</th>
+          <th>Email</th>
+          <th>School grade</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for student in students %}
+          <tr>
+            <td>
+              <span style="background-image: url({{ student.avatar_url }})"></span>
+              {{ student.name }}
+            </td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.grade_school }}</td>
+            <td>
+              <a href="/students/{{ student.id }}">
+                <span class="material-icons">remove_red_eye</span>
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    {% else %}
+
+      <div class="register-notfound">
+        <h4>{{messageErrorFilter}}</h4>
+      </div>
+      
+    {% endif %}
+
+    {% include '../pagination.njk' %}
+  </div>
+{% endblock content %}

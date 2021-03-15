@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block head %}
+      <title>My Class</title>
+    {% endblock %}
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/lottie.css">
+    <link rel="stylesheet" href="/system-message.css">
+  </head>
+  <body>
+    <header>
+      <div class="links">
+        <a href="/teachers">Teachers</a>
+        <a href="/students">Students</a>
+      </div>
+    </header>
+
+    {% include './system-message.njk' %}
+
+    {% block content %}{% endblock%}
+
+    <script src="/scripts.js"></script>
+    {% block scripts %}{% endblock%}
+
+  </body>
+</html>

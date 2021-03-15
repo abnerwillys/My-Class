@@ -1,0 +1,73 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+  <title>My Class | Student detail</title>
+{% endblock %}
+
+{% block content %}
+  <div class="card">
+    <section class="avatar" style="background: url({{ student.avatar_url }}) no-repeat center center / cover"></section>
+
+    <section class="details">
+      <h3>Details</h3>
+
+      {% if action_feedback %}
+        <div class="lottie"></div>
+        <input type="hidden" name="pathRedirect" value="{{pathRedirect}}">
+      {% else %}
+
+        <div class="item">
+          <div>Student</div>
+          <div>{{ student.name }}</div>
+        </div>
+        <div class="item">
+          <div>Email</div>
+          <div>{{ student.email }}</div>
+        </div>
+        <div class="item">
+          <div>Birthday</div>
+          <div>{{ student.birthday }}</div>
+        </div>
+        <div class="item">
+          <div>School grade</div>
+          <div>{{ student.grade_school }}</div>
+        </div>
+        <div class="item">
+          <div>Weekly course load (in hours)</div>
+          <div>{{ student.course_load }}</div>
+        </div>
+        <div class="item">
+          <div>Student of</div>
+          <div>{{ student.teacher_name }}</div>
+        </div>
+
+        <div id="button-box">
+          <a href="/students/{{ student.id }}/edit" class="button">
+            Edit
+            <span class="material-icons">
+              create
+            </span>
+          </a>
+
+          <form class="form-delete" action="/students?_method=DELETE" method="POST">
+            <input type="hidden" name="id" value="{{ student.id }}">
+            <input type="hidden" name="avatar_url" value="{{ student.avatar_url }}">
+
+            <button type="submit">
+              Delete
+              <span class="material-icons">
+                delete
+              </span>
+            </button>
+          </form>
+        </div>
+
+      {% endif %}
+    </section>
+  </div>
+
+{% endblock content %}
+
+{% block scripts %} 
+  {% include '../lottie.njk' %}
+{% endblock  %}

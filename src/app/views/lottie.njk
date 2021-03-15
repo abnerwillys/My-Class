@@ -1,0 +1,24 @@
+<script src="/lottie/lottie.min.js"></script>
+<script>
+  const element      = document.querySelector('section .lottie')
+  const pathRedirect = document.querySelector('section input[name="pathRedirect"]')?.value
+
+  lottie.loadAnimation({
+    container: element,
+    renderer: 'svg',
+    loop: false,
+    autoplay: true,
+    path: pathRedirect === '/teachers' || pathRedirect === '/students' 
+      ? '/lottie/13605-deleted-successfully.json' 
+      : '/lottie/12547-success-burst.json'
+  })
+
+  if (pathRedirect) {
+    window.onload = () => {
+      setTimeout(() => {
+        window.location.replace(pathRedirect)
+      }, [3000])
+    }
+  }
+  
+</script>

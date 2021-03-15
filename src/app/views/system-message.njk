@@ -1,0 +1,13 @@
+<div class="container-system-message">
+  {% if error %}
+    <div class="system error">
+      <p>{{ error }}</p>
+    </div>
+  {% endif %}
+
+  {% if success %}
+    <div class="system success">
+      <p>{{ success }}</p>
+    </div>
+  {% endif %}
+</div>

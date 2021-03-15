@@ -1,0 +1,27 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+  <title>My Class | Edit student</title>
+{% endblock %}
+
+{% block content %}
+  <div class="card">
+    <section 
+      class="avatar"
+      style="background: url({{ student.avatar_url }}) no-repeat center center / cover">
+    </section>
+    <section class="details">
+      <form action="/students?_method=PUT" method="POST">
+        <h3>Edit Student</h3>
+
+        {% include './fields.njk' %}
+
+        <input 
+          type="hidden" 
+          name="id" 
+          value="{{ student.id }}"
+        >
+      </form>
+    </section>
+  </div>
+{% endblock content %}
